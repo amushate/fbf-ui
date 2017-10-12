@@ -1,0 +1,44 @@
+<div class="container">
+
+	<h3 class="text-success">Members</h3>
+	<br>
+	<button class="btn btn-success" (click)="openModal(memberTemplate)">Add
+		Member</button>
+		<button class="btn btn-info" (click)="openModal(addDependant)">Add
+		Dependant</button>
+	<hr>
+	<tabset> <tab heading="All"> <app-all-members></app-all-members>
+	</tab> <tab heading="Active"> <app-active-members></app-active-members>
+	</tab> <tab heading="All Dependants"> <app-all-dependants></app-all-dependants>
+	</tab> </tabset>
+</div>
+
+<!-- Add Member Form -->
+<ng-template #memberTemplate>
+<div class="modal-header">
+	<h4 class="modal-title pull-left">Create Member</h4>
+	<button type="button" class="close pull-right" aria-label="Close"
+		(click)="modalRef.hide()">
+		<span aria-hidden="true">&times;</span>
+	</button>
+</div>
+<div class="modal-body">
+	<form>
+		<div class="form-group">
+			<label for="firstName"> First Name</label> 
+			<input ngModel name="firstName" id="firstName" #firstName="ngModel"	type="text" class="form-control">
+			<div class="alert alert-danger" *ngIf="!firstName.valid">First Name is Required</div>
+		</div>
+		<div class="form-group">
+			<label for="surname">Surname</label>
+			 <input ngModel name="surname" id="surname" #surname="ngModel" type="text"	class="form-control">
+		</div>
+		<div class="form-group">
+			<label for="nationalId">National Id</label> 
+			<input ngModel name="nationalId" id="nationalId" #nationalId="ngModel" type="text"	class="form-control">
+		</div>
+		<button class="btn btn-info" (click)="addMember(firstName,surname,nationalId)">Save</button>
+		<button class="btn btn-danger pull-right" (click)="modalRef.hide()">Cancel</button>
+	</form>
+</div>
+</ng-template>

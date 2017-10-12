@@ -1,0 +1,22 @@
+<br>
+<table class="table table-striped table-hover">
+	<thead>
+		<tr>
+			<th>MEMBER ID</th>
+			<th>NAME</th>
+			<th>SURNAME</th>
+			<th>NATIONAL ID</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let dependant of alldependants">
+			<td >{{dependant.dependantId}}</td>
+			<td >{{dependant.name}}</td>
+			<td >{{dependant.surname}}</td>
+			<td >{{dependant.nationalId}}</td>
+			<td ><button class="btn btn-success">Edit</button></td>
+			<td ><button class="btn btn-danger">Delete</button></td>
+			<td ><button class="btn">View</button></td>
+		</tr>
+	</tbody>
+</table>

@@ -1,0 +1,15 @@
+2017-10-12T08:27:05.107Z - info: [package.json] [peerDependencies] Doesn't exists, doing nothing
+2017-10-12T08:27:05.109Z - info: [package.json] [peerDependencies] Doesn't exists, doing nothing
+2017-10-12T08:27:05.110Z - info: [package.json] [dependencies] Updating @angular/common@^2.4.0 => ^4.0.0
+2017-10-12T08:27:05.110Z - info: [package.json] [dependencies] Updating @angular/compiler@^2.4.0 => ^4.0.0
+2017-10-12T08:27:05.110Z - info: [package.json] [dependencies] Updating @angular/core@^2.4.0 => ^4.0.0
+2017-10-12T08:27:05.110Z - info: [package.json] [dependencies] Updating @angular/forms@^2.4.0 => ^4.0.0
+2017-10-12T08:27:05.110Z - info: [package.json] [dependencies] Updating @angular/http@^2.4.0 => ^4.0.0
+2017-10-12T08:27:05.110Z - info: [package.json] [dependencies] Updating @angular/platform-browser@^2.4.0 => ^4.0.0
+2017-10-12T08:27:05.110Z - info: [package.json] [dependencies] Updating @angular/platform-browser-dynamic@^2.4.0 => ^4.0.0
+2017-10-12T08:27:05.110Z - info: [package.json] [dependencies] Updating @angular/router@^3.4.0 => ^4.0.0
+2017-10-12T08:27:05.110Z - info: [package.json] [dependencies] Updating zone.js@^0.7.6 => ^0.8.4
+2017-10-12T08:27:05.111Z - info: [package.json] [devDependencies] Updating @angular/compiler-cli@^2.4.0 => ^4.0.0
+2017-10-12T08:27:05.111Z - info: [package.json] [devDependencies] Updating @angular/cli@1.0.0-rc.4 => 1.0.0
+2017-10-12T08:27:05.111Z - info: [package.json] [devDependencies] Updating typescript@~2.0.0 => ~2.2.0
+2017-10-12T08:27:05.135Z - info: [update-reference] Writing update reference file
