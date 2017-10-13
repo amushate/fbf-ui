@@ -1,3 +1,26 @@
-<p>
-  careers works!
-</p>
+<div class="container">
+<h1 class="text-info">Vacancies</h1><br>
+	<table *ngIf="vacancies else other_content" class="table table-striped table-hover">
+			<thead>
+				<tr>
+					<th>Job ID</th>
+					<th>Title</th>
+					<th>Requirements</th>
+					<th>Posted Date</th>
+					<th>Application Deadline</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let vacancy of vacancies let i = index">
+					<td >{{vacancy.vacancyId}}</td>
+					<td >{{vacancy.title}}</td>
+					<td >{{vacancy.requirements}}</td>
+					<td >{{vacancy.postedDate}}</td>
+					<td >{{vacancy.deadline}}</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<ng-template #other_content>
+			<p class="text-primary">Currently there are no vacancies.</p></ng-template>
+</div>

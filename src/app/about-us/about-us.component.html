@@ -1,3 +1,12 @@
-<p>
-  about-us works!
-</p>
+<div class="container">
+	<div *ngFor="let boardMember of boardMembers" class="card col-sm-4">
+		 <img src="cinqueterre.jpg" class="card-img-top img-rounded" alt="Cinque Terre" width="304" height="236">
+		<div class="card-block">
+			<h4 class="card-title">{{boardMember.title}}</h4>
+			<p class="card-text">{{boardMember.fullName}}</p>
+			<p class="card-text">{{boardMember.qualities}}</p>
+			<p class="card-text">Phone: {{boardMember.phoneNumber}}</p>
+			<p class="card-text">Email: {{boardMember.email}}</p>
+		</div>
+	</div>
+</div>

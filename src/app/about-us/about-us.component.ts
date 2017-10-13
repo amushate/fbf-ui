@@ -1,3 +1,4 @@
+import { FBFBoardMember } from './board-member';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutUsComponent implements OnInit {
 
+  boardMembers: FBFBoardMember[];
   constructor() { }
 
   ngOnInit() {

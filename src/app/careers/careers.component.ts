@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CareersComponent implements OnInit {
 
+  vacancies :any[];
   constructor() { }
 
   ngOnInit() {
