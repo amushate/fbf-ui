@@ -20,6 +20,7 @@ import { AllMembersComponent } from './view-members/all-members/all-members.comp
 import { ViewMemberComponent } from './view-members/view-member/view-member.component';
 import { AllDependantsComponent } from './view-members/all-dependants/all-dependants.component';
 import { FbfLifeComponent } from './fbf-life/fbf-life.component';
+import { AddBoardMemberComponent } from './about-us/add-board-member/add-board-member.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { FbfLifeComponent } from './fbf-life/fbf-life.component';
     ViewMemberComponent,
     AllDependantsComponent,
     FbfLifeComponent,
+    AddBoardMemberComponent,
   ],
   imports: [
     BrowserModule,

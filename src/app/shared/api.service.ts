@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 export class ApiService {
 
   mainUrl = `http://localhost:8080/fbf-api/api`;
-  memberDependantUrl = this.mainUrl + "/dependants/member";
+  memberDependantUrl = this.mainUrl + '/dependants/member';
   allmemberUrl = this.mainUrl + `/members`;
   activeMembersUrl = this.mainUrl + `/members/active-members`;
   addmemberUrl = this.mainUrl + `/members`;

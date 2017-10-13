@@ -1,4 +1,4 @@
-import { FBFBoardMember } from './board-member';
+import { FBFBoardMember } from '../fbf-ui-model/board-member';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutUsComponent implements OnInit {
 
-  boardMembers: FBFBoardMember[];
+  boardMembers: FBFBoardMember[
+  
+  ];
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }
