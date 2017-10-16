@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-careers',
@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CareersComponent implements OnInit {
 
-  vacancies :any[];
-  constructor() { }
+  vacancies: any[];
+  constructor() {}
 
   ngOnInit() {
   }

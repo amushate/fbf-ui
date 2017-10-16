@@ -2,10 +2,7 @@
 
 	<h3 class="text-success">Members</h3>
 	<br>
-	<button class="btn btn-success" (click)="openModal(memberTemplate)">Add
-		Member</button>
-		<button class="btn btn-info" (click)="openModal(addDependant)">Add
-		Dependant</button>
+	<button class="btn btn-success" routerLink="/add-member">Add Member</button>
 	<hr>
 	<tabset> <tab heading="All"> <app-all-members></app-all-members>
 	</tab> <tab heading="Active"> <app-active-members></app-active-members>

@@ -20,9 +20,12 @@
 					<ul class="dropdown-menu">
 						<li *ngFor="let service of fbfServices"><a href="#">{{service}}</a></li>
 					</ul></li>
-				<li><a routerLink="members">Members</a></li>
+				<li *ngIf="isLoggedIn"><a routerLink="members">Members</a></li>
 				<li><a routerLink="contact-us">Contact Us</a></li>
 				<li><a routerLink="careers">Careers</a></li>
+				<li *ngIf="!isLoggedIn"><a routerLink="login">Login</a></li>
+				<li *ngIf="isLoggedIn"><a (click)="logout()" routerLink="">Log Out</a></li>
+				<li *ngIf="isLoggedIn"><a>{{user.username}}</a></li>
 			</ul>
 		</nav>
 	</div>

@@ -1,5 +1,6 @@
 import { Dependant } from '../../fbf-ui-model/dependant';
 import { Member } from '../../fbf-ui-model/member';
+import { Payment } from '../../fbf-ui-model/payment';
 import { ApiService } from '../../shared/api.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
@@ -16,6 +17,7 @@ export class ViewMemberComponent implements OnInit {
   private sub: any;
   member$: Member;
   dependants: Dependant[];
+  payments: Payment[];
   constructor(private service: ApiService, private router: Router, private route: ActivatedRoute, ) { }
 
   ngOnInit() {

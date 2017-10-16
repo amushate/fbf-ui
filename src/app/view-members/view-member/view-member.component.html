@@ -1,39 +1,65 @@
 <div class="container">
-	<h1 class="text-success">{{member$?.firstName}} {{member$?.surname}}</h1>
-  <tabset>
-    <tab heading="Policy Member">
-    	<br>
-		<div class="col-md-2">
-			{{member$?.firstName}}
+	<h1 class="text-success">{{member$?.firstName}}
+		{{member$?.surname}}</h1>
+	<tabset> <tab heading="Policy Member"> <br>	<h3 class="text-success" > FBF Member </h3>
+	<div class="panel panel-default">
+		<div class="panel-heading"><p class="text-info">{{member$?.firstName}} {{member$?.surname}}</p></div>
+		<div class="panel-body">Date Of Birth: {{member$.dob}}
+		<p>National Id: {{member$.nationalId}}</p>
 		</div>
-	</tab>
-    <tab (select)="loadDependants()" heading="Dependants">
-		<br>
-		<table class="table table-striped table-hover">
-			<thead>
-				<tr>
-					<th>Dependant ID</th>
-					<th>Name</th>
-					<th>Surname</th>
-					<th>National ID</th>
-					<th>Date of Birth</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr *ngFor="let dependant of dependants; let i = index">
-					<td >{{dependant.dependantId}}</td>
-					<td >{{dependant.name}}</td>
-					<td >{{dependant.surname}}</td>
-					<td >{{dependant.nationalId}}</td>
-					<td >{{dependant.dob}}</td>
-					<td >{{dependant.relationShipType}}</td>
-					<!-- <td ><button (click)="editMember(member, i);memberEdit.show()"  class="btn btn-success">Edit</button></td>
+	</div>
+	</tab> <tab (select)="loadDependants()" heading="Dependants"> <br>
+	<h3 class="text-warning" > Dependants </h3>
+	<table class="table table-striped table-hover">
+		<thead>
+			<tr>
+				<th>Dependant ID</th>
+				<th>Name</th>
+				<th>Surname</th>
+				<th>National ID</th>
+				<th>Date of Birth</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let dependant of dependants; let i = index">
+				<td>{{dependant.dependantId}}</td>
+				<td>{{dependant.name}}</td>
+				<td>{{dependant.surname}}</td>
+				<td>{{dependant.nationalId}}</td>
+				<td>{{dependant.dob}}</td>
+				<td>{{dependant.relationShipType}}</td>
+				<!-- <td ><button (click)="editMember(member, i);memberEdit.show()"  class="btn btn-success">Edit</button></td>
 					<td ><button type="button" [routerLink]="['/view-member',member.fbfMemberId]" class="btn btn-primary">View</button></td> -->
-				</tr>
-			</tbody>
-		</table>
-	
+			</tr>
+		</tbody>
+	</table>
 	</tab>
-    
-  </tabset>
+	<tab heading="Subscriptions">
+	 <br>
+		<h3 class="text-success" >Payments</h3>
+		<button class="btn btn-primary">Add Payment</button>
+		<table class="table table-striped table-hover">
+		<thead>
+			<tr>
+				<th>Payment Ref</th>
+				<th>Payment Type</th>
+				<th>Date</th>
+				<th>Amount</th>
+				<th>Status</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let payment of payments let i = index">
+				<td>{{payment.reference}}</td>
+				<td>{{payment.paymentType}}</td>
+				<td>{{payment.paymentDate}}</td>
+				<td>{{payment.amount}}</td>
+				<td>{{payment.status}}</td>
+				<td><button class="btn btn-success">Edit</button></td>
+				<td><button class="btn btn-danger">Reject</button></td>
+			</tr>
+		</tbody>
+	</table>
+	</tab>
+	</tabset>
 </div>
