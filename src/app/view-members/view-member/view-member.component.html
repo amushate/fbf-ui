@@ -4,12 +4,13 @@
 	<tabset> <tab heading="Policy Member"> <br>	<h3 class="text-success" > FBF Member </h3>
 	<div class="panel panel-default">
 		<div class="panel-heading"><p class="text-info">{{member$?.firstName}} {{member$?.surname}}</p></div>
-		<div class="panel-body">Date Of Birth: {{member$.dob}}
-		<p>National Id: {{member$.nationalId}}</p>
+		<div class="panel-body">Date Of Birth: {{member$?.dob}}
+		<p>National Id: {{member$?.nationalId}}</p>
 		</div>
 	</div>
 	</tab> <tab (select)="loadDependants()" heading="Dependants"> <br>
 	<h3 class="text-warning" > Dependants </h3>
+	<button  (click)="add_Dependant.show()" class="btn btn-primary">Add Dependant</button>
 	<table class="table table-striped table-hover">
 		<thead>
 			<tr>
@@ -18,6 +19,7 @@
 				<th>Surname</th>
 				<th>National ID</th>
 				<th>Date of Birth</th>
+				<th>Relationship</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -28,8 +30,6 @@
 				<td>{{dependant.nationalId}}</td>
 				<td>{{dependant.dob}}</td>
 				<td>{{dependant.relationShipType}}</td>
-				<!-- <td ><button (click)="editMember(member, i);memberEdit.show()"  class="btn btn-success">Edit</button></td>
-					<td ><button type="button" [routerLink]="['/view-member',member.fbfMemberId]" class="btn btn-primary">View</button></td> -->
 			</tr>
 		</tbody>
 	</table>
@@ -62,4 +62,44 @@
 	</table>
 	</tab>
 	</tabset>
+</div>
+
+<div bsModal #add_Dependant="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Add Dependant</h4>
+        <button type="button" class="close pull-right" (click)="add_Dependant.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+	<form>
+		<div class="form-group">
+			<label for="firstName"> Name</label> 
+			<input name="firstName" id="firstName" #firstName [(ngModel)]="newDependant.name"	type="text" class="form-control">
+			<div class="alert alert-danger" *ngIf=" firstName.touched && !firstName.valid">First Name is Required</div>
+		</div>
+		<div class="form-group">
+			<label for="surname">Surname</label>
+			 <input name="surname" id="surname" #surname [(ngModel)]="newDependant.surname" type="text"	class="form-control">
+		</div>
+		<div class="form-group">
+			<label for="nationalId">National Id/Birth Entry Number</label> 
+			<input name="nationalId" id="nationalId" #nationalId [(ngModel)]="newDependant.nationalId" type="text"	class="form-control">
+		</div>
+		<div class="form-group">
+			<label for="relationShipType">RelationShip Type</label> 
+			<input name="relationShipType" id="nationalId" #relationShipType [(ngModel)]="newDependant.relationShipType" type="text" class="form-control">
+		</div>
+		<div class="form-group">
+			<label for="dob">Date of Birth</label> 
+			<input ngModel name="dob" id="nationalId" #dob [(ngModel)]="newDependant.dob" type="text"	class="form-control">
+		</div>
+		<button class="btn btn-info" (click)="addDependant();add_Dependant.hide()">Save</button>
+		<button class="btn btn-danger pull-right" (click)="add_Dependant.hide()">Cancel</button>
+	</form>
+      </div>
+    </div>
+  </div>
 </div>

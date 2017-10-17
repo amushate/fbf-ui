@@ -7,6 +7,7 @@ import {Observable} from 'rxjs';
 export class DependantService {
 
   mainUrl = `http://localhost:8080/fbf-api/api`;
+  addUrl = `/dependants/member/`;
   constructor(public http: Http) {}
 
   getMemberDependantsByMemberId(memberId: string): Observable<Dependant[]> {
@@ -18,6 +19,12 @@ export class DependantService {
     return this.http.get(this.mainUrl + `/dependants`)
       .map(this.extractData).catch(this.handleError);
   }
+
+  addDependant(memberId: number, depandant: Dependant): Observable<Dependant[]> {
+    return this.http.post(this.mainUrl + this.addUrl + memberId, depandant)
+      .map(this.extractData).catch(this.handleError);
+  }
+
   private extractData(res: Response) {
     return res.json();
   }

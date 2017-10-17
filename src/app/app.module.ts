@@ -56,7 +56,7 @@ import {AddMemberComponent} from './view-members/add-member/add-member.component
       {path: 'contact-us', component: ContactUsComponent},
       {path: 'careers', component: CareersComponent},
       {path: 'members', component: ViewMembersComponent, canActivate: [OnlyLoggedInUsersGuard]},
-      {path: 'view-member/:id', component: ViewMemberComponent},
+      {path: 'view-member/:id', component: ViewMemberComponent, canActivate: [OnlyLoggedInUsersGuard]},
       {path: 'login', component: LoginComponent},
       {path: 'add-member', component: AddMemberComponent},]), SharedModule
   ],

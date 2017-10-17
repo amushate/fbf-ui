@@ -1,8 +1,8 @@
-import { Member } from '../fbf-ui-model/member';
-import { ApiService } from '../shared/api.service';
-import { Component, OnInit, TemplateRef } from '@angular/core';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {Member} from '../fbf-ui-model/member';
+import {ApiService} from '../shared/api.service';
+import {Component, OnInit, TemplateRef} from '@angular/core';
+import {BsModalRef, BsModalService} from 'ngx-bootstrap';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-view-members',
@@ -14,7 +14,7 @@ export class ViewMembersComponent implements OnInit {
   member = new Member();
   public modalRef: BsModalRef;
   errorMessage: String;
-  
+
   constructor(public apiService: ApiService, private modalService: BsModalService) {}
 
   ngOnInit() {
@@ -47,7 +47,7 @@ export class ViewMembersComponent implements OnInit {
     this.modalRef = this.modalService.show(template);
   }
 
-  addMember(firstName: any, surname: any, nationalId: any ) {
+  addMember(firstName: any, surname: any, nationalId: any) {
     this.populateMember(firstName.value, surname.value, nationalId.value);
     this.apiService.addMember(this.member)
       .subscribe(members => {
@@ -57,8 +57,8 @@ export class ViewMembersComponent implements OnInit {
       error => this.errorMessage = <any>error);
     this.modalRef.hide();
   }
-  
-  addDependant(firstName: any, surname: any, nationalId: any ) {
+
+  addDependant(firstName: any, surname: any, nationalId: any) {
     this.populateMember(firstName.value, surname.value, nationalId.value);
     this.apiService.addMember(this.member)
       .subscribe(members => {
