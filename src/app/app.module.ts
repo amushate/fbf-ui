@@ -25,6 +25,7 @@ import {AddBoardMemberComponent} from './about-us/add-board-member/add-board-mem
 import {LoginComponent} from './fbf-nav-bar/login/login.component';
 import {OnlyLoggedInUsersGuard} from './fbf-nav-bar/check-loggin-status';
 import {AddMemberComponent} from './view-members/add-member/add-member.component';
+import {FbfHealthComponent} from './fbf-health/fbf-health.component';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import {AddMemberComponent} from './view-members/add-member/add-member.component
     AddBoardMemberComponent,
     LoginComponent,
     AddMemberComponent,
+    FbfHealthComponent,
   ],
   imports: [
     BrowserModule, Ng2Webstorage, BsDatepickerModule.forRoot(),
@@ -58,7 +60,9 @@ import {AddMemberComponent} from './view-members/add-member/add-member.component
       {path: 'members', component: ViewMembersComponent, canActivate: [OnlyLoggedInUsersGuard]},
       {path: 'view-member/:id', component: ViewMemberComponent, canActivate: [OnlyLoggedInUsersGuard]},
       {path: 'login', component: LoginComponent},
-      {path: 'add-member', component: AddMemberComponent},]), SharedModule
+      {path: 'add-member', component: AddMemberComponent},
+      {path: 'fbf-life', component: FbfLifeComponent},
+      {path: 'fbf-health', component: FbfHealthComponent}, ]), SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

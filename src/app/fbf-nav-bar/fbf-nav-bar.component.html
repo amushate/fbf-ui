@@ -18,7 +18,8 @@
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown">Services<b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<li *ngFor="let service of fbfServices"><a href="#">{{service}}</a></li>
+						<li><a routerLink="fbf-life">FBF Life</a></li>
+						<li><a routerLink="fbf-health">FBF Health</a></li>
 					</ul></li>
 				<li *ngIf="isLoggedIn"><a routerLink="members">Members</a></li>
 				<li><a routerLink="contact-us">Contact Us</a></li>
