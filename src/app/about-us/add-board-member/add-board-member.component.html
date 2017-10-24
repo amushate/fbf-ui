@@ -1,3 +1,37 @@
-<p>
-  add-board-member works!
-</p>
+<br>
+<div class="container">
+	<div class="col-md-8 col-md-offset-2">
+		<div class="well well-lg">
+			<h2 class="text-center text-success">Add Board Member</h2>
+			<br>
+			<div class="input-group">
+				<span class="input-group-addon">Title</span>
+				<input type="text" [(ngModel)]="boardMember.title" class="form-control password" placeholder="title" required>
+			</div>
+			<br>
+			<div class="input-group">
+				<span class="input-group-addon">Full Name</span>
+				<input [(ngModel)]="boardMember.fullName" type="text"	class="form-control" placeholder="Full Name">
+				
+			</div>
+			<br>
+			<div class="input-group">
+				<span class="input-group-addon">Phone</span>
+				<input type="text" [(ngModel)]="boardMember.phoneNumber" class="form-control password" placeholder="phoneNumber" required>
+			</div>
+			<br>
+			<div class="input-group">
+				<span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+				<input type="email" [(ngModel)]="boardMember.email" class="form-control password" placeholder="email" required>
+			</div>
+			<br>
+			<div class="input-group">
+				<span class="input-group-addon">Qualities</span>
+				<input type="text" [(ngModel)]="boardMember.qualities" class="form-control password" placeholder="qualities" required>
+			</div>
+			<br>
+			<button (click)="clear()" class="btn btn-danger">Clear</button>
+			<button (click)="save();clear()" routerLink="/about-us" class="btn btn-success pull-right">Login</button>
+		</div>
+	</div>
+</div>

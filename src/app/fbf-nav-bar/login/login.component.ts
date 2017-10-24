@@ -36,7 +36,6 @@ export class LoginComponent implements OnInit {
   clear() {
     this.username = '';
     this.password = '';
-    console.log(this.user);
   }
 
 }

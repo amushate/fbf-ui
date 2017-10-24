@@ -1,10 +1,17 @@
 <div class="container">
 	<div>
-		<h2 class="col-md-3">About Us</h2> <button class="btn btn-info col-md-2">Add Board Member</button> <p class="col-md-7"></p> <br>
+		<h2>About Us</h2>
+		<button *ngIf="isLogged()" routerLink="/add-board-member"
+			class="btn btn-info col-md-2">Add Board Member</button>
+		<p class="col-md-7"></p>
+		<br>
 	</div>
+	<br>
 	<div *ngFor="let boardMember of boardMembers" class="card col-sm-4">
-		 <img src="cinqueterre.jpg" class="card-img-top img-rounded" alt="Cinque Terre" width="304" height="236">
-		<div class="card-block">
+		<img src="../../assets/images/ans.png"
+			class="card-img-top img-rounded" alt="Cinque Terre" width="304"
+			height="236">
+		<div class="card-block text-center">
 			<h4 class="card-title">{{boardMember.title}}</h4>
 			<p class="card-text">{{boardMember.fullName}}</p>
 			<p class="card-text">{{boardMember.qualities}}</p>

@@ -2,23 +2,27 @@
 	<div class="col-md-6 col-md-offset-3 well well-lg">
 	<form >
 		<div class="col-sm-6 form-group">
-			<label for="fullName"> Full Name</label> <input ngModel
-				name="fullName" id="fullName" #fullName type="text"
+			<label for="fullName"> Full Name</label> <input
+				name="fullName" id="fullName" [(ngModel)]="contactMessage.fullName" type="text"
 				class="form-control">
 		</div>
 		<div class="col-sm-6 form-group">
-			<label for="email">Email</label> <input ngModel name="email"
-				id="email" #email type="text" class="form-control">
+			<label for="email">Email</label> <input name="email"
+				id="email" [(ngModel)]="contactMessage.email" type="text" class="form-control">
 		</div>
 		<div class="col-sm-12 form-group">
-			<label for="message">Message</label> 
-			<textarea ngModel name="message" rows="5" id="message" #message type="text" class="form-control"></textarea>
+			<label for="message">Message</label>
+			<textarea name="message" rows="5" id="message" [(ngModel)]="contactMessage.message" type="text" class="form-control"></textarea>
 		</div>
 		<div class="col-sm-1">
-			<button class="btn btn-info"
-			(click)="updateMember(firstName.value,surname.value,nationalId.value,dob.value);">Send</button>
+			<button class="btn btn-danger"
+			(click)="clear()">Clear</button>
 		</div>
-		
+		<div class="pull-right">
+			<button class="btn btn-info"
+			(click)="save();clear()">Send</button>
+		</div>
+
 	</form>
 	</div>
 </div>

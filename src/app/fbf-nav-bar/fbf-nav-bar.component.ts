@@ -17,7 +17,6 @@ export class FbfNavBarComponent implements OnInit {
    this.user = this.storage.retrieve('user');
     if (this.user) {
       this.isLoggedIn = true;
-      this.user.username = 'amushate';
     } else {
       this.user = new User();
       this.isLoggedIn = false;
@@ -28,7 +27,6 @@ export class FbfNavBarComponent implements OnInit {
     this.user = this.storage.retrieve('user');
     if (this.user) {
       this.isLoggedIn = true;
-      this.user.username = 'amushate';
     } else {
       this.user = new User();
       this.isLoggedIn = false;
@@ -45,6 +43,5 @@ export class FbfNavBarComponent implements OnInit {
   logout() {
     this.isLoggedIn = false;
     this.storage.clear();
-    console.log('logged out');
   }
 }

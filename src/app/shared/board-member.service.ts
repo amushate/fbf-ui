@@ -30,7 +30,6 @@ export class BoardMemberService {
     return res.json();
   }
   private handleError(error: Response | any) {
-    console.error(error.message || error);
     return Observable.throw(error.status);
   }
 
