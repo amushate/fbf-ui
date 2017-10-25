@@ -8,7 +8,8 @@ export class Dependant {
   dob: string;
   relationShipType: string;
   nationalId: string;
+  gender: string;
 
-  constructor() { }
+  constructor() {}
 
 }

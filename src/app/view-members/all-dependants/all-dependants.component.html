@@ -2,10 +2,11 @@
 <table class="table table-striped table-hover">
 	<thead>
 		<tr>
-			<th>MEMBER ID</th>
+			<th>DEP No</th>
 			<th>NAME</th>
 			<th>SURNAME</th>
 			<th>NATIONAL ID</th>
+			<th>GENDER</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -14,9 +15,7 @@
 			<td >{{dependant.name}}</td>
 			<td >{{dependant.surname}}</td>
 			<td >{{dependant.nationalId}}</td>
-			<td ><button class="btn btn-success">Edit</button></td>
-			<td ><button class="btn btn-danger">Delete</button></td>
-			<td ><button class="btn">View</button></td>
+			<td >{{dependant.gender}}</td>
 		</tr>
 	</tbody>
 </table>

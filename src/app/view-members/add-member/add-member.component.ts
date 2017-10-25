@@ -21,7 +21,7 @@ export class AddMemberComponent implements OnInit {
   }
 
   clear() {
-
+    this.member = new Member();
   }
 
   save() {

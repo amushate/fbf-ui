@@ -1,4 +1,5 @@
 export class FBFBoardMember {
+  public fbfBoardMemberId: number;
   public title: string;
   public fullName: string;
   public phoneNumber: string;

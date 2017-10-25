@@ -27,6 +27,7 @@ import {OnlyLoggedInUsersGuard} from './fbf-nav-bar/check-loggin-status';
 import {AddMemberComponent} from './view-members/add-member/add-member.component';
 import {FbfHealthComponent} from './fbf-health/fbf-health.component';
 import { NotificationDialogComponent } from './notifications/notification-dialog/notification-dialog.component';
+import { AddPaymentComponent } from './view-members/view-member/add-payment/add-payment.component';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import { NotificationDialogComponent } from './notifications/notification-dialog
     AddMemberComponent,
     FbfHealthComponent,
     NotificationDialogComponent,
+    AddPaymentComponent,
   ],
   imports: [
     BrowserModule, Ng2Webstorage, BsDatepickerModule.forRoot(),
@@ -65,6 +67,7 @@ import { NotificationDialogComponent } from './notifications/notification-dialog
       {path: 'add-member', component: AddMemberComponent},
       {path: 'fbf-life', component: FbfLifeComponent},
       {path: 'fbf-health', component: FbfHealthComponent},
+      {path: 'add-payment', component: AddPaymentComponent, canActivate: [OnlyLoggedInUsersGuard]},
       {path: 'add-board-member', component: AddBoardMemberComponent, canActivate: [OnlyLoggedInUsersGuard]}, ]), SharedModule
   ],
   providers: [],

@@ -1,16 +1,65 @@
 <div class="container">
 	<h1 class="text-success">{{member$?.firstName}}
 		{{member$?.surname}}</h1>
-	<tabset> <tab heading="Policy Member"> <br>	<h3 class="text-success" > FBF Member </h3>
+	<tabset> <tab heading="Policy Member"> <br>
+	<h3 class="text-success">FBF Member</h3>
 	<div class="panel panel-default">
-		<div class="panel-heading"><p class="text-info">{{member$?.firstName}} {{member$?.surname}}</p></div>
-		<div class="panel-body">Date Of Birth: {{member$?.dob}}
-		<p>National Id: {{member$?.nationalId}}</p>
+		<div class="panel-heading">
+			<p class="text-info">{{member$?.firstName}} {{member$?.surname}}</p>
+		</div>
+		<div class="panel-body">
+			<div class="row">
+			<div class="col-lg-6">
+				<div class="input-group bg-info">
+					<span class="input-group-addon">Date Of Birth:</span>
+					 <input
+						type="text" class="form-control text-info disabled" name="reference" #reference disabled
+						[(ngModel)]="member$.dob" >
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<div class="input-group">
+					<span class="input-group-addon">National Id:</span> <input type="number"
+						class="form-control" name="amount" #amount disabled
+						[(ngModel)]="member$.nationalId"> 
+				</div>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="input-group bg-info">
+					<span class="input-group-addon">Phone Number:</span>
+					 <input
+						type="text" class="form-control text-info disabled" name="reference" #reference disabled
+						[ngModel]="member$.phoneNumber" >
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<div class="input-group">
+					<span class="input-group-addon">Gender:</span> <input type="number"
+						class="form-control" name="amount" #amount disabled
+						[(ngModel)]="member$.gender"> 
+				</div>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="input-group bg-info">
+					<span class="input-group-addon">Address:</span>
+					 <input
+						type="text" class="form-control text-info disabled" name="reference" #reference disabled
+						[ngModel]="member$.address" >
+				</div>
+			</div>
+		</div>
 		</div>
 	</div>
 	</tab> <tab (select)="loadDependants()" heading="Dependants"> <br>
-	<h3 class="text-warning" > Dependants </h3>
-	<button  (click)="add_Dependant.show()" class="btn btn-primary">Add Dependant</button>
+	<h3 class="text-warning">Dependants</h3>
+	<button (click)="add_Dependant.show()" class="btn btn-primary">Add
+		Dependant</button>
 	<table class="table table-striped table-hover">
 		<thead>
 			<tr>
@@ -33,73 +82,104 @@
 			</tr>
 		</tbody>
 	</table>
-	</tab>
-	<tab heading="Subscriptions">
-	 <br>
-		<h3 class="text-success" >Payments</h3>
-		<button class="btn btn-primary">Add Payment</button>
-		<table class="table table-striped table-hover">
+	</tab> <tab (select)="loadPayments()" heading="Subscriptions"> <br>
+	<h3 class="text-success">Payments</h3>
+	<button class="btn btn-primary" routerLink="/add-payment">Add
+		Payment</button>
+	<table class="table table-striped table-hover border border-primary">
 		<thead>
 			<tr>
+				<th>_</th>
 				<th>Payment Ref</th>
 				<th>Payment Type</th>
 				<th>Date</th>
-				<th>Amount</th>
 				<th>Status</th>
+				<th>Amount</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr *ngFor="let payment of payments let i = index">
+				<td>{{payment.paymentId}}</td>
 				<td>{{payment.reference}}</td>
 				<td>{{payment.paymentType}}</td>
 				<td>{{payment.paymentDate}}</td>
+				<td class="text-success">{{payment.status}}</td>
 				<td>{{payment.amount}}</td>
-				<td>{{payment.status}}</td>
-				<td><button class="btn btn-success">Edit</button></td>
-				<td><button class="btn btn-danger">Reject</button></td>
+				<td
+					*ngIf="payment.status==paymentStatus[paymentStatus.PENDING_VERIFICATION]"><button
+						(click)="approve(payment)" class="btn btn-success ">Approve</button></td>
+				<td
+					*ngIf="payment.status==paymentStatus[paymentStatus.PENDING_VERIFICATION]"><button
+						class="btn btn-info">Edit</button></td>
+				<td
+					*ngIf="payment.status==paymentStatus[paymentStatus.PENDING_VERIFICATION]">
+					<button (click)="reject(payment)" class="btn btn-danger">Reject</button>
+				</td>
 			</tr>
 		</tbody>
+		<tfoot>
+			<tr>
+				<th>_</th>
+				<th>_</th>
+				<th>_</th>
+				<th>_</th>
+				<th>Member Total Payments</th>
+				<th>{{totalPayments}}</th>
+			</tr>
+		</tfoot>
 	</table>
-	</tab>
-	</tabset>
+	</tab> </tabset>
 </div>
 
-<div bsModal #add_Dependant="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title pull-left">Add Dependant</h4>
-        <button type="button" class="close pull-right" (click)="add_Dependant.hide()" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-	<form>
-		<div class="form-group">
-			<label for="firstName"> Name</label> 
-			<input name="firstName" id="firstName" #firstName [(ngModel)]="newDependant.name"	type="text" class="form-control">
-			<div class="alert alert-danger" *ngIf=" firstName.touched && !firstName.valid">First Name is Required</div>
+<div bsModal #add_Dependant="bs-modal" class="modal fade" tabindex="-1"
+	role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title pull-left">Add Dependant</h4>
+				<button type="button" class="close pull-right"
+					(click)="add_Dependant.hide()" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<form>
+					<div class="form-group">
+						<label for="firstName"> Name</label> <input name="firstName"
+							id="firstName" #firstName [(ngModel)]="newDependant.name"
+							type="text" class="form-control">
+						<div class="alert alert-danger"
+							*ngIf=" firstName.touched && !firstName.valid">First Name
+							is Required</div>
+					</div>
+					<div class="form-group">
+						<label for="surname">Surname</label> <input name="surname"
+							id="surname" #surname [(ngModel)]="newDependant.surname"
+							type="text" class="form-control">
+					</div>
+					<div class="form-group">
+						<label for="nationalId">National Id/Birth Entry Number</label> <input
+							name="nationalId" id="nationalId" #nationalId
+							[(ngModel)]="newDependant.nationalId" type="text"
+							class="form-control">
+					</div>
+					<div class="form-group">
+						<label for="relationShipType">RelationShip Type</label> <input
+							name="relationShipType" id="nationalId" #relationShipType
+							[(ngModel)]="newDependant.relationShipType" type="text"
+							class="form-control">
+					</div>
+					<div class="form-group">
+						<label for="dob">Date of Birth</label> <input ngModel name="dob"
+							id="nationalId" #dob [(ngModel)]="newDependant.dob" type="text"
+							class="form-control">
+					</div>
+					<button class="btn btn-info"
+						(click)="addDependant();add_Dependant.hide()">Save</button>
+					<button class="btn btn-danger pull-right"
+						(click)="add_Dependant.hide()">Cancel</button>
+				</form>
+			</div>
 		</div>
-		<div class="form-group">
-			<label for="surname">Surname</label>
-			 <input name="surname" id="surname" #surname [(ngModel)]="newDependant.surname" type="text"	class="form-control">
-		</div>
-		<div class="form-group">
-			<label for="nationalId">National Id/Birth Entry Number</label> 
-			<input name="nationalId" id="nationalId" #nationalId [(ngModel)]="newDependant.nationalId" type="text"	class="form-control">
-		</div>
-		<div class="form-group">
-			<label for="relationShipType">RelationShip Type</label> 
-			<input name="relationShipType" id="nationalId" #relationShipType [(ngModel)]="newDependant.relationShipType" type="text" class="form-control">
-		</div>
-		<div class="form-group">
-			<label for="dob">Date of Birth</label> 
-			<input ngModel name="dob" id="nationalId" #dob [(ngModel)]="newDependant.dob" type="text"	class="form-control">
-		</div>
-		<button class="btn btn-info" (click)="addDependant();add_Dependant.hide()">Save</button>
-		<button class="btn btn-danger pull-right" (click)="add_Dependant.hide()">Cancel</button>
-	</form>
-      </div>
-    </div>
-  </div>
+	</div>
 </div>

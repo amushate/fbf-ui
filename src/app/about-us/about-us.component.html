@@ -8,15 +8,18 @@
 	</div>
 	<br>
 	<div *ngFor="let boardMember of boardMembers" class="card col-sm-4">
-		<img src="../../assets/images/ans.png"
-			class="card-img-top img-rounded" alt="Cinque Terre" width="304"
-			height="236">
+
 		<div class="card-block text-center">
+			<img src={{boardMember?.imageUrl}}
+				class="card-img-top img-rounded text-center" alt="Member Image"
+				width="304" height="236">
 			<h4 class="card-title">{{boardMember.title}}</h4>
 			<p class="card-text">{{boardMember.fullName}}</p>
 			<p class="card-text">{{boardMember.qualities}}</p>
 			<p class="card-text">Phone: {{boardMember.phoneNumber}}</p>
 			<p class="card-text">Email: {{boardMember.email}}</p>
+			<!-- 			<input  *ngIf="isLogged()" name="myfile" type="file" #fileInput (change)="getFiles($event)"/> -->
+			<!-- 			<button *ngIf="isLogged()" (click)="uploadImage();selected=boardMember" class="btn btn-primary">Load Image</button> -->
 		</div>
 	</div>
 </div>

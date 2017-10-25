@@ -3,7 +3,9 @@ import {ApiService} from './api.service';
 import {BoardMemberService} from './board-member.service';
 import {DependantService} from './dependant.service';
 import {ContactUsService} from './contact-us.service';
+import {DocumentService} from './document.service';
 import {LoginService} from './login.service';
+import {PaymentService} from './payment.service';
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {HttpModule} from '@angular/http';
@@ -15,7 +17,8 @@ import {HttpModule} from '@angular/http';
   ],
   declarations: [],
   providers: [
-    ApiService, DependantService, BoardMemberService, LoginService, OnlyLoggedInUsersGuard, ContactUsService,
+    ApiService, DependantService, BoardMemberService, LoginService, OnlyLoggedInUsersGuard
+    , ContactUsService, DocumentService, PaymentService,
   ]
 })
 export class SharedModule {}
