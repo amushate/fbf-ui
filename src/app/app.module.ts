@@ -26,8 +26,9 @@ import {LoginComponent} from './fbf-nav-bar/login/login.component';
 import {OnlyLoggedInUsersGuard} from './fbf-nav-bar/check-loggin-status';
 import {AddMemberComponent} from './view-members/add-member/add-member.component';
 import {FbfHealthComponent} from './fbf-health/fbf-health.component';
-import { NotificationDialogComponent } from './notifications/notification-dialog/notification-dialog.component';
-import { AddPaymentComponent } from './view-members/view-member/add-payment/add-payment.component';
+import {NotificationDialogComponent} from './notifications/notification-dialog/notification-dialog.component';
+import {AddPaymentComponent} from './view-members/view-member/add-payment/add-payment.component';
+import {AddDependantComponent} from './view-members/view-member/add-dependant/add-dependant.component';
 
 
 @NgModule({
@@ -51,6 +52,7 @@ import { AddPaymentComponent } from './view-members/view-member/add-payment/add-
     FbfHealthComponent,
     NotificationDialogComponent,
     AddPaymentComponent,
+    AddDependantComponent,
   ],
   imports: [
     BrowserModule, Ng2Webstorage, BsDatepickerModule.forRoot(),
@@ -63,12 +65,13 @@ import { AddPaymentComponent } from './view-members/view-member/add-payment/add-
       {path: 'careers', component: CareersComponent},
       {path: 'members', component: ViewMembersComponent, canActivate: [OnlyLoggedInUsersGuard]},
       {path: 'view-member/:id', component: ViewMemberComponent, canActivate: [OnlyLoggedInUsersGuard]},
+      {path: 'add-dependant/:id', component: AddDependantComponent, canActivate: [OnlyLoggedInUsersGuard]},
       {path: 'login', component: LoginComponent},
       {path: 'add-member', component: AddMemberComponent},
       {path: 'fbf-life', component: FbfLifeComponent},
       {path: 'fbf-health', component: FbfHealthComponent},
       {path: 'add-payment', component: AddPaymentComponent, canActivate: [OnlyLoggedInUsersGuard]},
-      {path: 'add-board-member', component: AddBoardMemberComponent, canActivate: [OnlyLoggedInUsersGuard]}, ]), SharedModule
+      {path: 'add-board-member', component: AddBoardMemberComponent, canActivate: [OnlyLoggedInUsersGuard]},]), SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

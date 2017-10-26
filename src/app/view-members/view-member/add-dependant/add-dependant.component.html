@@ -1,0 +1,62 @@
+<br>
+<div class="container">
+	<div class="well well-lg col-md-8 col-md-offset-2">
+		<h3 class="text-primary">Add Dependant</h3>
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="input-group">
+					<span class="input-group-addon">Name</span> <input
+						type="text" class="form-control" name="name" #name
+						[(ngModel)]="newDependant.name">
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<div class="input-group">
+					<span class="input-group-addon">Surname</span> <input type="text"
+						class="form-control" name="surname" #surname
+						[(ngModel)]="newDependant.surname">
+				</div>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="input-group">
+					<span class="input-group-addon">D.O.B</span> <input
+						type="text" class="form-control" name="dob" #dob
+						[(ngModel)]="newDependant.dob" placeholder="dd-mm-yyyy">
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<div class="input-group">
+					<span class="input-group-addon">Gender</span> <input
+						type="text" class="form-control" name="gender" #gender
+						[(ngModel)]="newDependant.gender" placeholder="Gender">
+				</div>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="input-group">
+					<span class="input-group-addon">National Id</span> <input
+						type="text" class="form-control" name="nationalId" #nationalId
+						[(ngModel)]="newDependant.nationalId" placeholder="Birth Entry, National Id">
+				</div>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-lg-6">
+				<button type="button" (click)="cancel()" class="btn btn-danger">Clear</button>
+			</div>
+			<div class="col-lg-6">
+				<button (click)="addDependant()" type="button"
+					class="btn btn-primary pull-right">Save</button>
+			</div>
+		</div>
+		<br>
+
+	</div>
+</div>
+

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from '../fbf-ui-model/user';
 import {LocalStorageService} from 'ngx-webstorage';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-fbf-nav-bar',
@@ -8,15 +9,24 @@ import {LocalStorageService} from 'ngx-webstorage';
   styleUrls: ['./fbf-nav-bar.component.css']
 })
 export class FbfNavBarComponent implements OnInit {
+  role: string;
+  roleAttempt: string;
+  roles: string[];
 
   title = 'FBF';
   isLoggedIn: boolean;
+  isAdmin: boolean;
   fbfServices = [`FBF Life`, `FBF Health`];
   user: User;
   constructor(private storage: LocalStorageService) {
-   this.user = this.storage.retrieve('user');
+    this.user = this.storage.retrieve('user');
     if (this.user) {
       this.isLoggedIn = true;
+      console.log(_.find(this.user.permissions, (role) => role.role === 'ADD_MEMBER') ? true : false);
+      if (_.find(this.user.permissions, (role) => role.role === 'ADD_MEMBER')) {
+        this.isAdmin = true;
+        console.log('ipapo');
+      }
     } else {
       this.user = new User();
       this.isLoggedIn = false;

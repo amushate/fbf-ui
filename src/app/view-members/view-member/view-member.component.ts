@@ -10,6 +10,7 @@ import {Router, ActivatedRoute, Params} from '@angular/router';
 import {Observable} from 'rxjs';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap';
 import {error} from 'util';
+import {Location} from '@angular/common';
 
 enum PaymentStatus {
   APPROVED,
@@ -34,7 +35,8 @@ export class ViewMemberComponent implements OnInit {
   totalPayments: number;
   paymentStatus: typeof PaymentStatus = PaymentStatus;
   constructor(private service: ApiService, private router: Router, private route: ActivatedRoute,
-    private dependantService: DependantService, private modalService: BsModalService, private paymentService: PaymentService) {}
+    private dependantService: DependantService, private modalService: BsModalService
+    , private paymentService: PaymentService, private location: Location) {}
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
@@ -51,14 +53,6 @@ export class ViewMemberComponent implements OnInit {
       this.dependants = data;
     }, error => {alert('Error Occured!');}
     );
-  }
-
-  addDependant() {
-    this.dependantService.addDependant(this.id, this.newDependant).subscribe(data => {
-      console.log(this.newDependant);
-    }, error => {
-      alert('Error Saving Dependant!');
-    });
   }
 
   loadPayments() {
@@ -95,6 +89,10 @@ export class ViewMemberComponent implements OnInit {
     }, error => {
       alert(error);
     });
+  }
+
+  back() {
+    this.location.back();
   }
 
 }
