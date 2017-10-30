@@ -20,10 +20,11 @@
 					<ul class="dropdown-menu">
 						<li><a routerLink="fbf-life">FBF Life</a></li>
 						<li><a routerLink="fbf-health">FBF Health</a></li>
-					</ul></li>
-				<li *ngIf="isAdmin"><a routerLink="members">Members</a></li>
-				<li><a routerLink="contact-us">Contact Us</a></li>
+					</ul></li>				
+				<li><a routerLink="contact-us">Contact Us</a></li>				
 				<li><a routerLink="careers">Careers</a></li>
+				<li *ngIf="isAdmin"><a routerLink="members">Members</a></li>
+				<li *ngIf="isAdmin"><a routerLink="users">Users</a></li>
 				<li *ngIf="!isLoggedIn"><a routerLink="login">Login</a></li>
 				<li *ngIf="isLoggedIn"><a (click)="logout()" routerLink="">Log Out</a></li>
 				<li *ngIf="isLoggedIn"><a>{{user.username}}</a></li>
@@ -37,10 +38,10 @@
 	<div class="container">
 		<form>
 			<div class="input-group">
-				<input type="email" class="form-control" placeholder="Search"
+				<input [(ngModel)]="searchtext" type="text" name="searchtext" class="form-control" placeholder="Search"
 					required>
 				<div class="input-group-btn">
-					<button type="button" class="btn btn-danger">Search</button>
+					<button type="button" (click)="search()" class="btn btn-danger">Search</button>
 				</div>
 			</div>
 		</form>

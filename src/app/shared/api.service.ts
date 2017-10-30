@@ -1,4 +1,5 @@
 import { Member } from '../fbf-ui-model/member';
+import { serverIp } from './serverip';
 import { Injectable } from '@angular/core';
 import { Http, Response, URLSearchParams, RequestOptions, Headers } from '@angular/http';
 import { Observable } from 'rxjs';
@@ -6,7 +7,7 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class ApiService {
 
-  mainUrl = `http://localhost:8080/fbf-api/api`;
+  mainUrl = serverIp + `/fbf-api/api`;
   memberDependantUrl = this.mainUrl + '/dependants/member';
   allmemberUrl = this.mainUrl + `/members`;
   activeMembersUrl = this.mainUrl + `/members/active-members`;

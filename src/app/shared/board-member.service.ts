@@ -1,4 +1,5 @@
 import {FBFBoardMember} from '../fbf-ui-model/board-member';
+import { serverIp } from './serverip';
 import {Injectable} from '@angular/core';
 import {Http, Response} from '@angular/http';
 import {Observable} from 'rxjs';
@@ -6,7 +7,7 @@ import {Observable} from 'rxjs';
 @Injectable()
 export class BoardMemberService {
 
-  mainUrl = `http://localhost:8080/fbf-api/api/board-members`;
+  mainUrl = serverIp + `/fbf-api/api/board-members`;
   constructor(private http: Http) {}
 
   getBoardMembers(): Observable<FBFBoardMember[]> {

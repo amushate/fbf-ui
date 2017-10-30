@@ -1,4 +1,5 @@
 import {FBFDocument} from '../fbf-ui-model/fbf-document';
+import { serverIp } from './serverip';
 import {Injectable} from '@angular/core';
 import {Http, Response, RequestOptions, Headers} from '@angular/http';
 import {Observable} from 'rxjs';
@@ -7,7 +8,7 @@ import {Observable} from 'rxjs';
 export class DocumentService {
   options: RequestOptions;
   headers: Headers;
-  mainUrl = `http://localhost:8080/fbf-api/api/upload`;
+  mainUrl = serverIp + `/fbf-api/api/upload`;
   constructor(public http: Http) {
 
   }

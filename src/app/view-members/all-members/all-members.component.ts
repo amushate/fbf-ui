@@ -24,6 +24,7 @@ export class AllMembersComponent implements OnInit {
 
   getAllMembers() {
     this.apiService.getMembers().subscribe(data => {
+      console.log(data);
       this.allMembers = data;
     }, error => { alert('Error Occured!'); }
     );

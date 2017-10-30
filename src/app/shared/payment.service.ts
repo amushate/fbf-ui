@@ -1,5 +1,6 @@
 import {Payment} from '../fbf-ui-model/payment';
 import { UIPaymentRequest } from '../fbf-ui-model/paymentrequest';
+import { serverIp } from './serverip';
 import {Injectable} from '@angular/core';
 import {Http, Response} from '@angular/http';
 import {Observable} from 'rxjs';
@@ -7,7 +8,7 @@ import {Observable} from 'rxjs';
 @Injectable()
 export class PaymentService {
 
-  mainUrl = `http://localhost:8080/fbf-api/api/payment`;
+  mainUrl = serverIp + `/fbf-api/api/payment`;
   constructor(public http: Http) {}
 
   getMemberPaymentByMemberId(memberId: number): Observable<Payment[]> {

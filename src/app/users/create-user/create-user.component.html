@@ -1,0 +1,21 @@
+<br>
+<div class="container">
+	<div class="col-md-8 col-md-offset-2">
+		<div class="well well-lg">
+			<h2 class="text-center text-danger">Add User</h2>
+			<br>
+			<div class="input-group">
+				<span class="input-group-addon">Username</span>
+				<input type="text" [(ngModel)]="user.username" class="form-control password" placeholder="username" required>
+			</div>
+			<br>
+			<div class="input-group">
+				<span class="input-group-addon">Password</span>
+				<input [(ngModel)]="user.password" type="password"	class="form-control" placeholder="password">				
+			</div>
+			<br>
+			<button (click)="clear()" class="btn btn-danger">Clear</button>
+			<button (click)="save()" routerLink="/users" class="btn btn-success pull-right">Save</button>
+		</div>
+	</div>
+</div>

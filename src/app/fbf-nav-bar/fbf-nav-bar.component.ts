@@ -13,6 +13,7 @@ export class FbfNavBarComponent implements OnInit {
   roleAttempt: string;
   roles: string[];
 
+  searchtext: string;
   title = 'FBF';
   isLoggedIn: boolean;
   isAdmin: boolean;
@@ -53,5 +54,10 @@ export class FbfNavBarComponent implements OnInit {
   logout() {
     this.isLoggedIn = false;
     this.storage.clear();
+  }
+
+  search() {
+    console.log(this.searchtext);
+    this.searchtext = '';
   }
 }

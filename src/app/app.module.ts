@@ -6,6 +6,7 @@ import {CarouselModule, TabsModule, BsDatepickerModule} from 'ngx-bootstrap';
 import {SharedModule} from './shared/shared.module';
 import {ModalModule} from 'ngx-bootstrap';
 import {Ng2Webstorage} from 'ngx-webstorage';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 import {AppComponent} from './app.component';
 import {FbfNavBarComponent} from './fbf-nav-bar/fbf-nav-bar.component';
@@ -29,6 +30,8 @@ import {FbfHealthComponent} from './fbf-health/fbf-health.component';
 import {NotificationDialogComponent} from './notifications/notification-dialog/notification-dialog.component';
 import {AddPaymentComponent} from './view-members/view-member/add-payment/add-payment.component';
 import {AddDependantComponent} from './view-members/view-member/add-dependant/add-dependant.component';
+import { CreateUserComponent } from './users/create-user/create-user.component';
+import { UserManagementComponent } from './users/user-management/user-management.component';
 
 
 @NgModule({
@@ -53,6 +56,8 @@ import {AddDependantComponent} from './view-members/view-member/add-dependant/ad
     NotificationDialogComponent,
     AddPaymentComponent,
     AddDependantComponent,
+    CreateUserComponent,
+    UserManagementComponent,
   ],
   imports: [
     BrowserModule, Ng2Webstorage, BsDatepickerModule.forRoot(),
@@ -71,9 +76,11 @@ import {AddDependantComponent} from './view-members/view-member/add-dependant/ad
       {path: 'fbf-life', component: FbfLifeComponent},
       {path: 'fbf-health', component: FbfHealthComponent},
       {path: 'add-payment', component: AddPaymentComponent, canActivate: [OnlyLoggedInUsersGuard]},
+      {path: 'create-user', component: CreateUserComponent, canActivate: [OnlyLoggedInUsersGuard]},
+      {path: 'users', component: UserManagementComponent, canActivate: [OnlyLoggedInUsersGuard]},
       {path: 'add-board-member', component: AddBoardMemberComponent, canActivate: [OnlyLoggedInUsersGuard]},]), SharedModule
   ],
-  providers: [],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

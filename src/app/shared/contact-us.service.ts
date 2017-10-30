@@ -1,4 +1,5 @@
 import {ContactMessage} from '../fbf-ui-model/contact.message';
+import { serverIp } from './serverip';
 import {Injectable} from '@angular/core';
 import {Http, Response} from '@angular/http';
 import {Observable} from 'rxjs';
@@ -6,7 +7,7 @@ import {Observable} from 'rxjs';
 @Injectable()
 export class ContactUsService {
 
-  mainUrl = `http://localhost:8080/fbf-api/api/contact-us`;
+  mainUrl = serverIp + `/fbf-api/api/contact-us`;
   constructor(private http: Http) {}
 
   public sendData(contactMessage: ContactMessage): Observable<ContactMessage> {

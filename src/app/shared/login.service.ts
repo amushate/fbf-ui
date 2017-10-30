@@ -4,16 +4,24 @@ import {LocalStorageService} from 'ngx-webstorage';
 import {Observable} from 'rxjs';
 
 import {User} from '../fbf-ui-model/user';
+import { serverIp } from './serverip';
 
 @Injectable()
 export class LoginService {
 
-  loginUrl = `http://localhost:8080/fbf-api/api/user/login`;
+  
+  loginUrl = serverIp + `/fbf-api/api/user/login`;
+  mainUrl = serverIp + `/fbf-api/api/user`;
   constructor(private storage: LocalStorageService, private http: Http) {}
 
   login(user: User): Observable<User> {
-    console.log(user);
     return this.http.get(this.loginUrl + '?username=' + user.username + '&password=' + user.password)
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
+  createUser(user: User): Observable<User> {
+    return this.http.post(this.mainUrl, user)
       .map(this.extractData)
       .catch(this.handleError);
   }

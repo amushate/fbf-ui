@@ -1,4 +1,5 @@
 import {Dependant} from '../fbf-ui-model/dependant';
+import { serverIp } from './serverip';
 import {Injectable} from '@angular/core';
 import {Http, Response} from '@angular/http';
 import {Observable} from 'rxjs';
@@ -6,7 +7,7 @@ import {Observable} from 'rxjs';
 @Injectable()
 export class DependantService {
 
-  mainUrl = `http://localhost:8080/fbf-api/api`;
+  mainUrl = serverIp + `/fbf-api/api`;
   addUrl = `/dependants/member/`;
   constructor(public http: Http) {}
 
